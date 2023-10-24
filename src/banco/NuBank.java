@@ -1,54 +1,16 @@
 package banco;
 
-import java.util.ArrayList;
-import java.util.List;
+//Classe NuBank que estende Banco
+class NuBank extends Banco {
+ @Override
+ public void abrirConta(Pessoa pessoa) {
+     // Lógica para abrir uma conta no NuBank
+ }
 
-import pessoa.Pessoa;
-import banco.conta.Conta;
-
-public class NuBank implements IOperacoesBancarias {
-	private List<Pessoa> clientes;
-
-	public NuBank() {
-		clientes = new ArrayList<>();
-	}
-
-	public void abrirConta(Pessoa pessoa) {
-		
-		clientes.add(pessoa);
-	}
-
-
-	public void depositar(Conta conta, int valor) {
-		
-	}
-
-	public boolean enviarPix(Pessoa remetente, Pessoa destinatario, int valor) {
-		
-		return false;
-	}
-
-	public boolean sacar(Conta conta, int valor) {
-		
-		return false; 
-	}
-
-	public boolean encerrarConta(Pessoa pessoa) {
-		
-		return false; 
-	}
-
-	@Override
-	public List<Pessoa> obterClientes() {
-		return clientes;
-	}
-
-	@Override
-	public float obterSaldo(Pessoa pessoa) {
-		Conta conta = pessoa.getConta();
-		return (conta != null) ? conta.getSaldo() : 0;
-	}
-
-
+ @Override
+ public boolean encerrarConta(Pessoa pessoa) {
+     // Lógica para encerrar uma conta no NuBank
+     return false;
+ }
 }
 

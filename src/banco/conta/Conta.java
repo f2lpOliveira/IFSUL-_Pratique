@@ -1,15 +1,17 @@
 package banco.conta;
 
-public class Conta {
-	private float saldo;
-	private String tipoConta;
+//Classe Conta (abstrata)
+public abstract class Conta {
+ // Atributos
+ protected String numeroConta;
+ protected float saldo;
+ protected int tipoConta;
 
-	public float getSaldo() {
-		return saldo;
-	}
+ // Construtor
+ public Conta(int tipoConta) {
+     this.tipoConta = tipoConta;
+ }
 
-	public String obterTipoConta() {
-		return tipoConta;
-
-	}
+ // Método abstrato para ser implementado nas classes filhas
+ public abstract String obterTipoConta();
 }

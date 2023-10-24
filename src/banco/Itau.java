@@ -1,54 +1,36 @@
 package banco;
 
-import java.util.ArrayList;
-import java.util.List;
+//Classe Itau que estende Banco
+class Itau extends Banco {
+ @Override
+ public void abrirConta(Pessoa pessoa) {
+     if (pessoa != null) {
+         // Criar uma ContaPF ou ContaPJ com base no tipo de pessoa
+         Conta novaConta;
+         if (pessoa.getTipoPessoa() == 1) {
+             novaConta = new ContaPF();
+         } else if (pessoa.getTipoPessoa() == 2) {
+             novaConta = new ContaPJ();
+         } else {
+             System.out.println("Tipo de pessoa inválido.");
+             return;
+         }
 
-import pessoa.Pessoa;
-import banco.conta.Conta;
+         // Definir um valor para o atributo numeroConta da Conta criada
+         Random random = new Random();
+         String numeroConta = "Itau-" + random.nextInt(1000);
+         novaConta.setNumeroConta(numeroConta);
 
-public class Itau implements IOperacoesBancarias {
-	private List<Pessoa> clientes;
+         // Lógica para salvar a novaConta, se necessário
+     } else {
+         System.out.println("Pessoa inválida.");
+     }
+ }
 
-	public Itau() {
-		clientes = new ArrayList<>();
-	}
-
-	public void abrirConta(Pessoa pessoa) {
-		
-		clientes.add(pessoa);
-	}
-
-
-	public void depositar(Conta conta, int valor) {
-		
-	}
-
-	public boolean enviarPix(Pessoa remetente, Pessoa destinatario, int valor) {
-		
-		return false;
-	}
-
-	public boolean sacar(Conta conta, int valor) {
-		
-		return false; 
-	}
-
-	public boolean encerrarConta(Pessoa pessoa) {
-		
-		return false; 
-	}
-
-	@Override
-	public List<Pessoa> obterClientes() {
-		return clientes;
-	}
-
-	@Override
-	public float obterSaldo(Pessoa pessoa) {
-		Conta conta = pessoa.getConta();
-		return (conta != null) ? conta.getSaldo() : 0;
-	}
-
-
+ @Override
+ public boolean encerrarConta(Pessoa pessoa) {
+     // Lógica para verificar se a pessoa tem uma conta e encerrá-la
+     // Retornar true se a conta foi encerrada com sucesso, false caso contrário
+     return false;
+ }
 }
-
