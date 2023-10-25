@@ -1,5 +1,7 @@
 package pessoa;
 
+import	banco.conta.Conta;
+
 public class Pessoa {
     private String nome;
     private String cpf;
@@ -7,13 +9,17 @@ public class Pessoa {
     private Conta conta;
 
     // Construtor
-    public Pessoa(String nome, String cpf, int tipoPessoa) throws IllegalArgumentException {
+    public Pessoa(String nome, String cpf, int tipoPessoa) throws Exception {
         if (tipoPessoa != 1 && tipoPessoa != 2) {
-            throw new IllegalArgumentException("Tipo de pessoa inválido. Deve ser 1 para Pessoa Física ou 2 para Pessoa Jurídica.");
+            throw new Exception("Tipo de pessoa inválido. Deve ser 1 para Pessoa Física ou 2 para Pessoa Jurídica.");
         }
         this.nome = nome;
         this.cpf = cpf;
         this.tipoPessoa = tipoPessoa;
+    }
+    
+    public String getNome() {
+        return nome;
     }
 
     // Método para obter o tipo de pessoa
@@ -47,4 +53,9 @@ public class Pessoa {
     public void setConta(Conta conta) {
         this.conta = conta;
     }
+
+	public int getTipoPessoa() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

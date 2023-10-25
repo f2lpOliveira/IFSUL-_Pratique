@@ -1,9 +1,9 @@
 package main;
 
 import java.util.List;
+
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-
 import banco.IOperacoesBancarias;
 import banco.Itau;
 import banco.NuBank;

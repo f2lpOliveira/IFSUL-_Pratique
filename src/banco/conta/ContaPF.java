@@ -1,7 +1,7 @@
 package banco.conta;
 
 //Classe ContaPF
-class ContaPF extends Conta {
+public class ContaPF extends Conta {
  // Construtor que chama o construtor da classe mãe e define o tipo de conta como pessoa física (tipoConta = 1)
  public ContaPF() {
      super(1);
@@ -12,5 +12,11 @@ class ContaPF extends Conta {
  public String obterTipoConta() {
      return "PF";
  }
+
+@Override
+public void setSaldo(float f) {
+	// TODO Auto-generated method stub
+	
+}
 }
 
